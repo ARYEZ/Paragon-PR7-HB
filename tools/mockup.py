@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from PySide6.QtCore import QPointF, QRectF, Qt  # noqa: E402
-from PySide6.QtGui import QColor, QFont, QLinearGradient, QPainter, QPainterPath, QPen, QPixmap  # noqa: E402
+from PySide6.QtGui import QColor, QFont, QLinearGradient, QPainter, QPainterPath, QPen  # noqa: E402
 from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QFrame, QGridLayout, QHBoxLayout,  # noqa: E402
                                QLabel, QLineEdit, QListWidget, QListWidgetItem, QProgressBar, QPushButton,
                                QRadioButton, QSlider, QSpinBox, QTabWidget, QVBoxLayout, QWidget)

@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-from PySide6.QtCore import QPointF, QRectF, QSize, Qt, Signal
+from PySide6.QtCore import QPointF, QRectF, QSize, Qt
 from PySide6.QtGui import (QColor, QFont, QIcon, QLinearGradient, QPainter, QPainterPath, QPen, QPixmap,
                            QRadialGradient, QRegion, QTransform)
-from PySide6.QtWidgets import QAbstractButton, QHBoxLayout, QLabel, QWidget
+from PySide6.QtWidgets import QAbstractButton, QWidget
 
 from . import theme
 
