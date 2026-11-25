@@ -64,11 +64,14 @@ def test_stop_cancels_and_removes_the_half_file(qapp, media, builtin, tmp_path):
         time.sleep(0.05)
     assert it.state == queue.ENCODING and 0 < it.progress.fraction < 1
     assert q.pause() and it.state == queue.PAUSED
-    f = it.progress.fraction
-    for _ in range(10):
+    for _ in range(10):                  # progress HandBrake wrote just before it was suspended is still in the pipe
         qapp.processEvents()
         time.sleep(0.05)
-    assert it.progress.fraction - f < 0.05                       # suspended: (almost) nothing more
+    f = it.progress.fraction
+    for _ in range(20):
+        qapp.processEvents()
+        time.sleep(0.05)
+    assert it.progress.fraction - f < 0.02                       # suspended: nothing new for a second
     q.stop()
     assert q.wait(30)
     assert it.state == queue.CANCELLED and not (tmp_path / "long.mp4").exists() and not q.running
